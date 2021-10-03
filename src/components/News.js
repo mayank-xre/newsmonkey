@@ -6,17 +6,17 @@ import PropTypes from 'prop-types'
 export class News extends Component {
     articles=[]
     static defaultProps={
-        country:"in&category=${this.props.category}",
+        country:"in",
         pagesize:5,
+        category:""
     }
     static propTypes={
         country:PropTypes.string,
         pagesize:PropTypes.number,
-        category:PropTypes.string,
+        category:PropTypes.string
     }
     constructor(){
         super();
-        console.log("hello i am a constructor");
         this.state={
             articles:this.articles,
             loading:false
@@ -27,25 +27,20 @@ export class News extends Component {
         let url=`https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=6845710cfea0488ba68a9ac1ba903d5f&pagesize=${this.props.pagesize}`
         let data=await fetch(url)
         let parsedd=await data.json()
-        console.log(parsedd)
         this.setState({articles:parsedd.articles,page:1,totalarticles:parsedd.totalResults,loading:false})
     }
     prevclick=async ()=>{
-        console.log("prev")
         this.setState({loading:true})
         let url=`https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=6845710cfea0488ba68a9ac1ba903d5f&page=${this.state.page-1}&pagesize=${this.props.pagesize}`
         let data=await fetch(url)
         let parsedd=await data.json()
-        console.log(parsedd)
         this.setState({articles:parsedd.articles,page:this.state.page-1,loading:false})
     }
     nextclick=async ()=>{
-        console.log("next")
         this.setState({loading:true})
         let url=`https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=6845710cfea0488ba68a9ac1ba903d5f&page=${this.state.page+1}&pagesize=${this.props.pagesize}`
         let data=await fetch(url)
         let parsedd=await data.json()
-        console.log(parsedd)
         this.setState({articles:parsedd.articles,page:this.state.page+1,loading:false})
     }
     render() {
@@ -67,7 +62,7 @@ export class News extends Component {
                         newsdesc=element.description
                     }
                     return <div className="col-md-4 my-2" key={element.url}>
-                    <NewsItem title={element.title} desc={newsdesc} imag={element.urlToImage} newsurl={element.url}></NewsItem>
+                    <NewsItem title={element.title} author={element.author} time={element.publishedAt} desc={newsdesc} imag={element.urlToImage} newsurl={element.url}></NewsItem>
                     </div>
                 })}
                 </div>                
