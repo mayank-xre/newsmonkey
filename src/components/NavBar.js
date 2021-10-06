@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Navbar = (props) => {
   return (
     <div className="container">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode} fixed-top`}>
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             NewsMonkey
@@ -62,6 +62,10 @@ const Navbar = (props) => {
                 </Link>
               </li>
             </ul>
+            <div className={`form-check form-switch text-${props.mode==="light"?"dark":"light"}`}>
+  <input className="form-check-input" type="checkbox" role="switch" onClick={props.togglem} id="flexSwitchCheckDefault"/>
+  <label className="form-check-label" for="flexSwitchCheckDefault">Enable Dark mode</label>
+</div>
           </div>
         </div>
       </nav>

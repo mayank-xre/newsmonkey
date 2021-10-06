@@ -21,6 +21,7 @@ const News = (props) => {
   };
   useEffect(() => {
     async function getnews() {
+      setarticles([])
       props.progf(0);
       let url = `https://newsapi.org/v2/top-headlines?country=in&category=${props.category}&apiKey=${props.apikey}&pagesize=${props.pagesize}`;
       props.progf(20);
@@ -67,7 +68,7 @@ const News = (props) => {
     <>
       <div className="container d-flex justify-content-between" style={{ marginTop: '70px',marginBottom:"10px" }}
 >
-        <h2 className="">Top Headlines</h2>
+        <h2 className="" style={{color:props.mode==="light"?"black":"white"}}>Top Headlines</h2>
         {/* eslint-disable-next-line */}
         <form action="javascript:void(0);" className="d-flex">
           <input
@@ -105,7 +106,7 @@ const News = (props) => {
                 newsdesc = element.description;
               }
               return (
-                <div className="col-md-4" key={element.url}>
+                <div className="col-md-4 my-2" key={element.url}>
                   <NewsItem
                     title={element.title}
                     author={element.author}
@@ -113,6 +114,7 @@ const News = (props) => {
                     desc={newsdesc}
                     imag={element.urlToImage}
                     newsurl={element.url}
+                    mode={props.mode}
                   ></NewsItem>
                 </div>
               );
