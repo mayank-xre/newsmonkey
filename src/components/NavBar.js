@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 const Navbar = (props) => {
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <div className="container">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             NewsMonkey

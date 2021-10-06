@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
 const News = (props) => {
   const [articles, setarticles] = useState([]);
+  // eslint-disable-next-line
   const [loading, setloading] = useState(true);
   const [totalarticles, settotarticles] = useState(0);
   const [page, setpage] = useState(1);
@@ -34,6 +35,7 @@ const News = (props) => {
       props.progf(100);
     }
     getnews();
+    // eslint-disable-next-line
   }, []);
   const fetchmore = async () => {
     setpage(page + 1);
@@ -63,18 +65,20 @@ const News = (props) => {
   };
   return (
     <>
-      <div className="container my-3 d-flex justify-content-between">
-        <h2>Top Headlines</h2>
-        <form action="javascript:void(0);" class="d-flex">
+      <div className="container d-flex justify-content-between" style={{ marginTop: '70px',marginBottom:"10px" }}
+>
+        <h2 className="">Top Headlines</h2>
+        {/* eslint-disable-next-line */}
+        <form action="javascript:void(0);" className="d-flex">
           <input
-            class="form-control me-2"
+            className="form-control me-2"
             type="search"
             id="inpq"
             placeholder="Search News"
             aria-label="Search"
           />
           <button
-            class="btn btn-outline-success"
+            className="btn btn-outline-success"
             type="button"
             onClick={handleform}
           >
