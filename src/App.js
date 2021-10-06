@@ -1,7 +1,6 @@
-//import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/NavBar';
-import React, { Component, useState } from 'react'
+import React, { useState } from 'react'
 import News from './components/News';
 import {
   BrowserRouter as Router,
