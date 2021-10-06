@@ -1,7 +1,0 @@
-<Route path="/business"><News pagesize={10}></News></Route>
-<Route path="/entertainment"><News pagesize={10}></News></Route>
-<Route path="/general"><News pagesize={10}></News></Route>
-<Route path="/health"><News pagesize={10}></News></Route>
-<Route path="/science"><News pagesize={10}></News></Route>
-<Route path="/sports"><News pagesize={10}></News></Route>
-<Route path="/technology"><News pagesize={10}></News></Route>
