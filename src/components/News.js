@@ -97,7 +97,7 @@ const News = (props) => {
           <div className="row">
             {articles.map((element) => {
               let newsdesc;
-              if (element.description == null) {
+              if (element.description === null) {
                 newsdesc = "";
               } else if (element.description.length >= 85) {
                 newsdesc = element.description.slice(0, 85);
